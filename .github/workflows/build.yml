@@ -81,9 +81,8 @@ jobs:
       - name: Install OpenWrt SDK
         run: |
           wget ${{ matrix.target.sdk }} -O openwrt-sdk.tar.zst
-          tar -zstd openwrt-sdk.tar.zst
+          tar --use-compress-program=unzstd -xf openwrt-sdk.tar.zst
           mv -f openwrt-sdk-* openwrt-sdk
-
       - name: Build Package
         run: |
           git pull
