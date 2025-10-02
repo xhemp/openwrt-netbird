@@ -59,7 +59,7 @@ jobs:
           - arch: "aarch64_cortex-a53"
             sdk: "https://downloads.openwrt.org/releases/24.10.3/targets/bcm27xx/bcm2710/openwrt-sdk-24.10.3-bcm27xx-bcm2710_gcc-13.3.0_musl.Linux-x86_64.tar.zst"
                   
-            steps:
+      steps:  
       - name: Checkout
         uses: actions/checkout@main
 
