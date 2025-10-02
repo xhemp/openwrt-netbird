@@ -57,8 +57,9 @@ jobs:
       matrix:
         target:
           - arch: "aarch64_cortex-a53"
-            sdk: "https://downloads.openwrt.org/releases/23.05.4/targets/bcm27xx/bcm2710/openwrt-sdk-23.05.4-bcm27xx-bcm2710_gcc-12.3.0_musl.Linux-x86_64.tar.xz"
-    steps:
+            sdk: "https://downloads.openwrt.org/releases/24.10.3/targets/bcm27xx/bcm2710/openwrt-sdk-24.10.3-bcm27xx-bcm2710_gcc-13.3.0_musl.Linux-x86_64.tar.zst"
+                  
+            steps:
       - name: Checkout
         uses: actions/checkout@main
 
@@ -79,8 +80,8 @@ jobs:
 
       - name: Install OpenWrt SDK
         run: |
-          wget ${{ matrix.target.sdk }} -O openwrt-sdk.tar.xz
-          tar -xf openwrt-sdk.tar.xz
+          wget ${{ matrix.target.sdk }} -O openwrt-sdk.tar.zst
+          tar -zstd openwrt-sdk.tar.zst
           mv -f openwrt-sdk-* openwrt-sdk
 
       - name: Build Package
